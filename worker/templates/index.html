@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aviata - flights cache</title>
+</head>
+<body>
+
+<h1>Aviata - flights cache</h1>
+
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+</style>
+
+<form>
+    <input type="date" id="start" name="trip-start"
+       value="2020-11-11">
+
+    <button type="submit">Filter</button>
+
+</form>
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Fly_duration</th>
+        <th>City from</th>
+        <th>City to</th>
+        <th>Distance</th>
+        <th>Price</th>
+        <th>Link</th>
+        <th>Checked</th>
+        <th>Validate</th>
+        <th>Price change</th>
+    </tr>
+    {% for item in data %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.destination }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.fly_duration }}</td>
+        <td>{{ item.city_from }}</td>
+        <td>{{ item.city_to }}</td>
+        <td>{{ item.distance }}</td>
+        <td>{{ item.price }}</td>
+        <td><a href="{{ item.deep_link }}" target="_blank">Go to booking</a></td>
+        <td>{{ item.checked }}</td>
+        <td>{{ item.validate }}</td>
+        <td>{{ item.price_changed }}</td>
+    </tr>
+    {%  endfor %}
+</table>
+
+</body>
+</html>
